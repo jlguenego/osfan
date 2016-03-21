@@ -1,0 +1,14 @@
+{
+	"name": "exo",
+	"version": "0.0.1",
+	"description": "exo pour les stagiaires orsys",
+	"main": "index.js",
+	"scripts": {
+		"postinstall": "bower install"
+	},
+	"author": "Jean-Louis GUENEGO",
+	"license": "MIT",
+	"devDependencies": {
+		"bower": "1.3.12"
+	}
+}
