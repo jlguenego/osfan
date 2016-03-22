@@ -6,11 +6,14 @@
 	app.directive('osStar', function() {
 		return {
 			restrict: 'CEA',
+			scope: {
+				n: '=note' 
+			},
 			link: function(scope, element, attrs) {
 				console.log('os-star link', arguments);
 				
-				scope.$watch('myNote', function() {
-					var note = Number(scope.myNote);
+				scope.$watch('n', function() {
+					var note = Number(scope.n);
 					note = (isNaN(note)) ? 5 : note;
 					note = (note > 5) ? 5 : note;
 					note = (note < 0) ? 0 : note;
