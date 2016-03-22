@@ -46,7 +46,7 @@
 	app.directive('myHeader', function() {
 		return {
 			restrict: 'CEA',
-			templateUrl: 'my_header.html',
+			templateUrl: 'tmpl/my_header.html',
 			transclude: true
 		};
 	});
@@ -54,7 +54,7 @@
 	app.directive('myBody', function() {
 		return {
 			restrict: 'CEA',
-			templateUrl: 'my_body.html',
+			templateUrl: 'tmpl/my_body.html',
 			transclude: true
 		};
 	});
@@ -62,7 +62,7 @@
 	app.directive('myFooter', function() {
 		return {
 			restrict: 'CEA',
-			templateUrl: 'my_footer.html',
+			templateUrl: 'tmpl/my_footer.html',
 			transclude: true
 		};
 	});
