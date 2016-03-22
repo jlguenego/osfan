@@ -1,17 +1,46 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ui.validate']);
+	var app = angular.module('mainApp', ['ui.validate', 'ngRoute']);
 	
-	app.run(['$rootScope', function($rootScope) {
+	var clone = function(obj) {
+		if (obj !== null && typeof obj === 'object') {
+			var result = {};
+			for (var p in obj) {
+				result[p] = clone(obj[p]);
+				// result[p] = obj[p]; shallow copy
+			}
+			return result;
+		} else {
+			// type primitif
+			return obj;
+		}
+	};
+	
+	app.config(['$routeProvider', function($routeProvider) {
+
+		$routeProvider
+			.when('/', {
+				templateUrl: 'route/home.html'
+			})
+			.when('/mon-compte', {
+				templateUrl: 'route/account.html'
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
+	}]);
+	
+	app.run(['$rootScope', '$log', function($rootScope, $log) {
 		$rootScope.isCountry = function(value) {
-			console.log('$rootScope.country', $rootScope.country);
+			$log.debug('$rootScope.country', $rootScope.country);
 			var countries = ['France', 'Italie'];
 			if (countries.indexOf(value) >= 0) {
 				return true;
 			}
 			return false;
 		};
+		
 	}]);
 
 	app.directive('myHeader', function() {
@@ -37,5 +66,7 @@
 			transclude: true
 		};
 	});
+	
+	
 	
 })();
