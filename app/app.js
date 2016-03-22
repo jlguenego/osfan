@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ui.validate', 'ngRoute']);
+	var app = angular.module('mainApp', ['ui.validate', 'ngRoute', 'os-widget']);
 	
 	var clone = function(obj) {
 		if (obj !== null && typeof obj === 'object') {
