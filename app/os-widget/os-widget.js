@@ -7,13 +7,13 @@
 		return {
 			restrict: 'CEA',
 			scope: {
-				n: '=note' 
+				note: '=note' 
 			},
 			link: function(scope, element, attrs) {
 				console.log('os-star link', arguments);
 				
-				scope.$watch('n', function() {
-					var note = Number(scope.n);
+				scope.$watch('note', function() {
+					var note = Number(scope.note);
 					note = (isNaN(note)) ? 5 : note;
 					note = (note > 5) ? 5 : note;
 					note = (note < 0) ? 0 : note;
