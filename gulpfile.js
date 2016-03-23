@@ -105,7 +105,7 @@ gulp.task('html', function() {
 
 gulp.task('deploy', function() {
 	return gulp.src('./dist/**/*')
-		.pipe($.ghPages({ cacheDir: '../.publish_boof'}));
+		.pipe($.ghPages({ cacheDir: '../.publish_osfan'}));
 });
 
 gulp.task('build', ['data', 'images', 'fonts', 'html', 'css', 'js', 'template'], function() {
