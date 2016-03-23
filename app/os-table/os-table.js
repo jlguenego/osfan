@@ -29,6 +29,22 @@
 					console.log('row', row);
 					header.append(row);
 					table.append(header);
+					
+					var body = angular.element('<tbody></tbody>');
+					
+					for (var i = 1; i < data.length; i++) {
+						console.log('i', i);
+						var row = angular.element('<tr></tr>');
+						for (var j = 0; j < data[i].length; j++) {	
+							var value = data[i][j];
+							var td = angular.element('<td></td>');
+							td.append(value);
+							row.append(td);
+						}
+						body.append(row);
+					}
+					table.append(body);
+					
 					element.append(table);
 				}).catch(function(error) {
 					console.error('error', error)
