@@ -4,21 +4,25 @@
 		<title>Exo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		
-		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+		<!-- build:css -->
+		<link target="vendors" rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
+		<link target="vendors" rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+		<!-- endbuild -->
 	</head>
 	<body ng-app="mainApp">
 		<my-header></my-header>
-		<my-body></my-body>   
+		<my-body></my-body>
 		<my-footer></my-footer>
-		<script src="../bower_components/jquery/dist/jquery.js"></script>
-		<script src="../bower_components/angular/angular.js"></script>
-		<script src="../bower_components/angular-route/angular-route.js"></script>
-		<script src="../bower_components/angular-ui-validate/dist/validate.js"></script>
-		<script src="../bower_components/papaparse/papaparse.js"></script>
-		<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-		<script src="app.js"></script>
-		<script src="os-widget/os-widget.js"></script>
-		<script src="os-table/os-table.js"></script>
+		<!-- build:js -->
+		<script target="vendors" src="../bower_components/jquery/dist/jquery.js"></script>
+		<script target="vendors" src="../bower_components/angular/angular.js"></script>
+		<script target="vendors" src="../bower_components/angular-route/angular-route.js"></script>
+		<script target="vendors" src="../bower_components/angular-ui-validate/dist/validate.js"></script>
+		<script target="vendors" src="../bower_components/papaparse/papaparse.js"></script>
+		<script target="vendors" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script target="app" src="app.js"></script>
+		<script target="app" src="os-widget/os-widget.js"></script>
+		<script target="app" src="os-table/os-table.js"></script>
+		<!-- endbuild -->
 	</body>
 </html>

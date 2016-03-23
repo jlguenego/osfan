@@ -1,15 +1,20 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ui.validate', 'ngRoute', 'os-widget', 'os-table']);
-	
+	var app = angular.module('mainApp', ['ui.validate', 'ngRoute', 'os-widget', 'os-table', 'templates']);
+
+	angular.module('templates', []);
+
 	var clone = function(obj) {
 		console.log('this', this);
-		if (obj !== null && typeof obj === 'object') {
+		if (obj !== null && typeof obj == 'object') {
 			var result = {};
 			for (var p in obj) {
-				result[p] = clone(obj[p]);
-				// result[p] = obj[p]; shallow copy
+				if (obj.hasOwnProperty(p)) {
+					result[p] = clone(obj[p]);
+
+					// result[p] = obj[p]; shallow copy
+				}
 			}
 			return result;
 		} else {
@@ -17,7 +22,7 @@
 			return obj;
 		}
 	}.bind({});
-	
+
 	app.config(['$routeProvider', function($routeProvider) {
 
 		$routeProvider
@@ -31,7 +36,7 @@
 				redirectTo: '/'
 			});
 	}]);
-	
+
 	app.run(['$rootScope', '$log', function($rootScope, $log) {
 		$rootScope.isCountry = function(value) {
 			$log.debug('$rootScope.country', $rootScope.country);
@@ -41,10 +46,10 @@
 			}
 			return false;
 		};
-		
+
 		var a = {};
 		var b = clone(a);
-		
+
 	}]);
 
 	app.directive('myHeader', function() {
@@ -54,7 +59,7 @@
 			transclude: true
 		};
 	});
-	
+
 	app.directive('myBody', function() {
 		return {
 			restrict: 'CEA',
@@ -62,7 +67,7 @@
 			transclude: true
 		};
 	});
-	
+
 	app.directive('myFooter', function() {
 		return {
 			restrict: 'CEA',
@@ -70,7 +75,7 @@
 			transclude: true
 		};
 	});
-	
-	
-	
+
+
+
 })();
