@@ -4,6 +4,7 @@
 	var app = angular.module('mainApp', ['ui.validate', 'ngRoute', 'os-widget', 'os-table']);
 	
 	var clone = function(obj) {
+		console.log('this', this);
 		if (obj !== null && typeof obj === 'object') {
 			var result = {};
 			for (var p in obj) {
@@ -15,7 +16,7 @@
 			// type primitif
 			return obj;
 		}
-	};
+	}.bind({});
 	
 	app.config(['$routeProvider', function($routeProvider) {
 
@@ -40,6 +41,9 @@
 			}
 			return false;
 		};
+		
+		var a = {};
+		var b = clone(a);
 		
 	}]);
 

@@ -14,11 +14,9 @@
 				console.log('os-table link', arguments);
 				var src = attrs.src;
 				$http.get(src).then(function(response) {
-					var data = Papa.parse(response.data, {
-						skipEmptyLines: true
-					}).data;
+					var data = Papa.parse(response.data).data;
 					console.log('data', data);
-					var table = angular.element('<table class="table"></table>');
+					var table = angular.element('<table></table>');
 					var header = angular.element('<thead></thead>');
 					var row = angular.element('<tr></tr>');
 					for (var i = 0; i < data[0].length; i++) {
